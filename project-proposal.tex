@@ -1,0 +1,224 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX book template                           %%
+%% Author:  Amber Jain (http://amberj.devio.us/) %%
+%% License: ISC license                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt, oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 'dedication' environment: To add a dedication paragraph at the start of book %
+% Source: http://www.tug.org/pipermail/texhax/2010-June/015184.html            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Book's title and subtitle
+\title{\Huge \textbf{Road Surface Estimator} \\ \huge A Project Proposal}
+% Author
+\author{\textsc{Thanakrit Lee}}
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Auto-generated table of contents, list of figures and list of tables %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+
+Re-surfacing roads requires the knowledge of the surface area of roads to resurface.
+Getting the surface area of roads can be made more efficient using aerial/satellite views technology, where the surface area can be calculated. The efficiency of having a total estimated surface area of roads to resurface allows road surface materials to be prepared in a more precise manner, reducing materials wastes and thus reducing total road resurfacing costs.
+
+
+This document propose a web application that allows user to designate point on a map for a total estimated surface area of roads in the square kilometre ($km^2$). The web application will be implemented with Google Maps, which allows for user to map interactivity, and for getting data requires for the surface area calculation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Project Requirements}
+
+\section{Functional Requirements}
+
+\begin{itemize}
+	\item The application is able to display a graphical map.
+	\item The application allow user to interact with the map e.g. click on the map, drag and move around on the map, zoom in and zoom out, change map styling (roadmap and satellite view), add marker.
+	\item The application allow user to mark the centre point of the square kilometre area on the interactive map.
+	\item The application allow user to input longitude and latitude coordinates.
+	\item The application is able to display the user input coordinates on the interactive map.
+	\item The application is able to calculate the surface area of the road in the selected square kilometre ($km^2$).
+	\item The application is able to display the calculated road surface area.
+\end{itemize}
+
+Lorem ipsum list:
+
+1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+2. Duis ac mi magna, a consectetur elit.
+
+3. Curabitur posuere erat \emph{dignissim ligula euismod} ut euismod nisi.
+
+4. Fusce vulputate facilisis neque, et ornare mauris mattis vel.
+
+5. Mauris sit amet nulla mi, vitae rutrum ante.
+
+6. Maecenas quis nulla risus, vel tincidunt ligula.
+
+7. Nullam ac enim neque, non \emph{dapibus}.
+
+8. Integer volutpat leo a orci suscipit eget rhoncus urna eleifend.
+
+\section{Non-Functional Requirements}
+\begin{itemize}
+	\item The application's graphical user interface is easy to navigate.
+	\item The application is doesn't take long to process the surface area calculation, i.e. low response time.
+	\item The application is responsive.
+	\item The application is able to be use on mobile devices.
+	\item The application provides a tutorial on how to use the application.
+	\item The application is hosted on the web, and user can access via the internet.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Project Plan}
+
+\section{Overview}
+The objective of the project is to develop a web application that allows user to select a square kilometre area on the interactive map, calculate the total estimated surface area of roads in the area, and display the result.
+
+A constraint for the project is that this project is done as part of a contract for a local council in Victoria, Melbourne, Australia. This means that the roads to resurface must be the correct category of roads classified by the local council (i.e. the declared roads being free ways, arterial roads and some non-arterial state roads)\footnote{VicRoads. (2016). Register of public roads. Retrieved from \url{https://www.vicroads.vic.gov.au/about-vicroads/acts-and-regulations/register-of-public-roads}}
+
+\section{Risk Analysis}
+
+\section{Resource Requirements}
+\begin{itemize}
+	\item Computer.
+	\item Internet access.
+	\item IDE for developing the application.
+\end{itemize}
+
+\section{Schedule}
+***Leave blank and add Attach Gantt chart separately.***
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{External Design}
+
+
+\section{User Interface}
+***Take screen shot of the app user interface and paste it here.***
+***Take screen shot of both web and mobile view.
+
+\section{Functionality}
+
+
+\section{Performance}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Internal Design}
+The web application will have a client-side and server-side. Angular 5 is use as the front-end client-side and Node JS Express is use as the back-end server-side. The client and server will communicates with each other through HTTP. A server is implemented in this web application so that it is properly structured and follow the separation of concerns principle. The front-end take cares of the business logic (displaying data, taking user inputs) while the back-end take cares of the calculation and processing of data.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Software Architecture}
+The web application will use the Angular 5 web framework to implement the front-end client-side of the application. The back-end server-side will be implemented using Node JS Express, and the communications between the server and the client will be done through HTTP REST. Using the Google Maps API, the client creates a map static image URL and pass it (through HTTP) to the server for processing. The server will the process the image and calculate the total surface area of roads in the map, and response the result back to the client.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Test Plan}
+
+\section{Test Coverage}
+
+\section{Test Methods}
+
+\section{Sample Test Cases}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{References}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Another section heading}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample table                                        %
+% Source: www1.maths.leeds.ac.uk/latex/TableHelp1.pdf %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[ht]
+\caption{Sample table} % title of Table
+\centering % used for centering table
+\begin{tabular}{c c c c}
+% centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+S. No. & Column\#1 & Column\#2 & Column\#3 \\ [0.5ex]
+% inserts table
+%heading
+\hline % inserts single horizontal line
+1 & 50 & 837 & 970 \\
+2 & 47 & 877 & 230 \\
+3 & 31 & 25 & 415 \\
+4 & 35 & 144 & 2356 \\
+5 & 45 & 300 & 556 \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{table:nonlin} % is used to refer this table in the text
+\end{table}
+
+\begin{itemize}
+\item Mauris
+\item Maecenas
+\item Nullam
+\end{itemize}
+
+\end{document}
